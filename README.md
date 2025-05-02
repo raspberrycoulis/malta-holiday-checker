@@ -32,11 +32,13 @@ This Python script checks daily whether the current date is a **public holiday i
 ```bash
 git clone https://github.com/your-username/malta-holiday-notifier.git
 cd malta-holiday-notifier
+```
 
 2. **Create a .env file:**
 
 ```bash
 WEBHOOK_URL=https://your-teams-webhook-url
+```
 
 > [!TIP]
 > You can get your webhook URL by adding the **Incoming Webhook** connector to a Teams channel.
@@ -49,6 +51,7 @@ We recommend using a virtual environment:
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
 
 If you don't have a `requirements.txt` yet, create it:
 
@@ -56,6 +59,7 @@ If you don't have a `requirements.txt` yet, create it:
 holidays
 requests
 python-dotenv
+```
 
 ## Running automatically with Cron
 
@@ -63,5 +67,6 @@ To run daily at 9:00am BST, add this line to your crontab:
 
 ```bash
 0 8 * * * /usr/bin/python3 /path/to/holiday_checker.py >> /var/log/holiday_checker.log 2>&1
+```
 
 Make it executable and update your crontab accordingly.
