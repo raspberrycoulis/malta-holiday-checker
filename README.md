@@ -69,4 +69,13 @@ To run daily at 9:00am BST, add this line to your crontab:
 0 8 * * * /usr/bin/python3 /path/to/holiday_checker.py >> /var/log/holiday_checker.log 2>&1
 ```
 
+Or use a shell script wrapper that loads the `.env` file:
+
+```bash
+#!/bin/bash
+cd /path/to/script
+export $(grep -v '^#' .env | xargs)
+python3 holiday_checker.py
+```
+
 Make it executable and update your crontab accordingly.
