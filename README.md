@@ -30,7 +30,7 @@ This Python script checks daily whether the current date is a **public holiday i
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/your-username/malta-holiday-notifier.git
+git clone https://github.com/raspberrycoulis/malta-holiday-notifier.git
 cd malta-holiday-notifier
 ```
 
