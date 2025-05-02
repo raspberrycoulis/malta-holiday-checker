@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+env/
+venv/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS metadata
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Virtual environments
+pip-wheel-metadata/
+
+# VS Code
+.vscode/
+.history/
