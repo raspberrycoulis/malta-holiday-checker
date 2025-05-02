@@ -16,8 +16,12 @@ def is_public_holiday_in_malta(today):
 
 def send_teams_message(is_holiday, holiday_name):
     message = "Yes" if is_holiday else "No"
-    details = f"Today is {holiday_name}." if holiday_name else "Today is not a public holiday in Malta."
+    details = f"Today is {holiday_name}. ClamTech are probably not working today!" if holiday_name else "Today is not a public holiday in Malta, so ClamTech should be working today."
     style = "attention" if is_holiday else "good"  # Red or green background container
+
+    # Console log for cron tracking
+    timestamp = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    print(f"[{timestamp}] Result: {message}. {details}")
 
     payload = {
         "type": "message",
@@ -71,6 +75,9 @@ def send_teams_message(is_holiday, holiday_name):
     response.raise_for_status()
 
 def main():
+    timestamp = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    print(f"[{timestamp}] Script started.")
+
     today = datetime.date.today()
     holiday_today, holiday_name = is_public_holiday_in_malta(today)
     send_teams_message(holiday_today, holiday_name)

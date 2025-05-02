@@ -20,9 +20,6 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# Logs
-*.log
-
 # Virtual environments
 pip-wheel-metadata/
 

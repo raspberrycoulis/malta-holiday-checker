@@ -63,10 +63,10 @@ python-dotenv
 
 ## Running automatically with Cron
 
-To run daily at 9:00am BST, add this line to your crontab:
+To run daily at 9:00am BST Monday to Friday, add this line to your crontab:
 
 ```bash
-0 8 * * * /usr/bin/python3 /path/to/holiday_checker.py >> /var/log/holiday_checker.log 2>&1
+0 8 * * 1-5 cd /path/to/script_directory && ./venv/bin/python holiday_checker.py >> /path/to/script_directory/cron.log 2>&1
 ```
 
 Or use a shell script wrapper that loads the `.env` file:
