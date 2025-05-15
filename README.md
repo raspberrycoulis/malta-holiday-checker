@@ -41,7 +41,7 @@ WEBHOOK_URL=https://your-teams-webhook-url
 ```
 
 > [!TIP]
-> You can get your webhook URL by adding the **Incoming Webhook** connector to a Teams channel.
+> You can get your webhook URL by adding the **Incoming Webhook** connector to a Teams channel and following the setup wizard there.
 
 3. **Install dependencies:**
 
