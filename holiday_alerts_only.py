@@ -12,22 +12,18 @@ load_dotenv()
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 TITLE = "Is it a public holiday in Malta today?"
 
-def is_public_holiday_in_malta(today):
+def is_public_holiday_in_malta(date_to_check):
     mt_holidays = holidays.MT()
-    return today in mt_holidays, mt_holidays.get(today)
+    name = mt_holidays.get(date_to_check)
+    return bool(name), name
 
 def send_teams_message(is_holiday, holiday_name):
-    # Only send a Teams message if today is a public holiday
-    if not is_holiday:
-        timestamp = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-        print(f"[{timestamp}] Not a public holiday in Malta today. No Teams message sent.")
-
+    timestamp = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     message = "Yes"
     details = f"Today is {holiday_name}. ClamTech are probably not working today!"
     style = "attention" # Red background container for holiday
 
     # Console log for cron tracking
-    timestamp = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     print(f"[{timestamp}] Result: {message}. {details}")
 
     payload = {
@@ -86,8 +82,12 @@ def main():
     print(f"[{timestamp}] Script started.")
 
     today = datetime.date.today()
-    holiday_today, holiday_name = is_public_holiday_in_malta(today)
-    send_teams_message(holiday_today, holiday_name)
+    is_holiday, holiday_name = is_public_holiday_in_malta(today)
+
+    if is_holiday:
+        send_teams_message(holiday_name)
+    else:
+        print(f"[{timestamp}] Not a public holiday in Malta today ({today}). No Teams message sent.")
 
 if __name__ == "__main__":
     main()
