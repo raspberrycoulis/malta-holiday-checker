@@ -19,7 +19,7 @@ def is_public_holiday_in_malta(today):
 def send_teams_message(is_holiday, holiday_name):
     # Only send a Teams message if today is a public holiday
     if not is_holiday:
-        timestamp = datetime.datime.now().strftime("%d-%m-%Y %H:%M:%S")
+        timestamp = datetime.dateime.now().strftime("%d-%m-%Y %H:%M:%S")
         print(f"[{timestamp}] Not a public holiday in Malta today. No Teams message sent.")
 
     message = "Yes"
