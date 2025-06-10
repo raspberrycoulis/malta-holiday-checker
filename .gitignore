@@ -26,3 +26,6 @@ pip-wheel-metadata/
 # VS Code
 .vscode/
 .history/
+
+# Log files
+*.log
